@@ -19,7 +19,7 @@ int value (int x, int y)  {
              z = z * z + point;
              nb_iter++;
       }
-      if (nb_iter < 34) return 255;
+      if (nb_iter < 34) return (255*nb_iter)/33;
       else return 0;
 }
 
