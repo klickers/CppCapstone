@@ -64,9 +64,9 @@ void fractal(Window<int> &scr, Window<double> &fract, int iter_max, std::vector<
 	plot(scr, colors, iter_max, fname, smooth_color);
 }
 
-void mandelbrot() {
+void mandelbrot(int width, int height) {
 	// Define the size of the image
-	Window<int> scr(0, 1200, 0, 1200);
+	Window<int> scr(0, width, 0, height);
 	// The domain in which we test for points
 	Window<double> fract(-2.2, 1.2, -1.7, 1.7);
 
@@ -84,9 +84,9 @@ void mandelbrot() {
 	fractal(scr, fract, iter_max, colors, func, fname, smooth_color);
 }
 
-void triple_mandelbrot() {
+void triple_mandelbrot(int width, int height) {
 	// Define the size of the image
-	Window<int> scr(0, 1200, 0, 1200);
+	Window<int> scr(0, width, 0, height);
 	// The domain in which we test for points
 	Window<double> fract(-1.5, 1.5, -1.5, 1.5);
 
@@ -103,8 +103,13 @@ void triple_mandelbrot() {
 
 int main() {
 
-	mandelbrot();
-	triple_mandelbrot();
+	int width, height;
+
+	std::cin << "Width of image: " << width << std::endl;
+	std::cin << "Height of image: " << height << std::endl;
+
+	mandelbrot(width, height);
+	triple_mandelbrot(width, height);
 
 	return 0;
 }
