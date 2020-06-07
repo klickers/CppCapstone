@@ -123,6 +123,60 @@ Capstone/fast:
 	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/build
 .PHONY : Capstone/fast
 
+src/SaveImage.o: src/SaveImage.cpp.o
+
+.PHONY : src/SaveImage.o
+
+# target to build an object file
+src/SaveImage.cpp.o:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/SaveImage.cpp.o
+.PHONY : src/SaveImage.cpp.o
+
+src/SaveImage.i: src/SaveImage.cpp.i
+
+.PHONY : src/SaveImage.i
+
+# target to preprocess a source file
+src/SaveImage.cpp.i:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/SaveImage.cpp.i
+.PHONY : src/SaveImage.cpp.i
+
+src/SaveImage.s: src/SaveImage.cpp.s
+
+.PHONY : src/SaveImage.s
+
+# target to generate assembly for a file
+src/SaveImage.cpp.s:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/SaveImage.cpp.s
+.PHONY : src/SaveImage.cpp.s
+
+src/Utils.o: src/Utils.cpp.o
+
+.PHONY : src/Utils.o
+
+# target to build an object file
+src/Utils.cpp.o:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/Utils.cpp.o
+.PHONY : src/Utils.cpp.o
+
+src/Utils.i: src/Utils.cpp.i
+
+.PHONY : src/Utils.i
+
+# target to preprocess a source file
+src/Utils.cpp.i:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/Utils.cpp.i
+.PHONY : src/Utils.cpp.i
+
+src/Utils.s: src/Utils.cpp.s
+
+.PHONY : src/Utils.s
+
+# target to generate assembly for a file
+src/Utils.cpp.s:
+	$(MAKE) -f CMakeFiles/Capstone.dir/build.make CMakeFiles/Capstone.dir/src/Utils.cpp.s
+.PHONY : src/Utils.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Capstone"
 	@echo "... edit_cache"
+	@echo "... src/SaveImage.o"
+	@echo "... src/SaveImage.i"
+	@echo "... src/SaveImage.s"
+	@echo "... src/Utils.o"
+	@echo "... src/Utils.i"
+	@echo "... src/Utils.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

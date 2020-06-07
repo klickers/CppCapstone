@@ -1,1 +1,1 @@
-/usr/bin/g++-7  -std=c++17   CMakeFiles/Capstone.dir/src/main.cpp.o  -o Capstone 
+/usr/bin/g++-7  -std=c++17   CMakeFiles/Capstone.dir/src/main.cpp.o CMakeFiles/Capstone.dir/src/Utils.cpp.o CMakeFiles/Capstone.dir/src/SaveImage.cpp.o  -o Capstone 
