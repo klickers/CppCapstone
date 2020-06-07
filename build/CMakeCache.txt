@@ -206,6 +206,12 @@ Capstone_BINARY_DIR:STATIC=/home/workspace/CppCapstone/build
 //Value Computed by CMake
 Capstone_SOURCE_DIR:STATIC=/home/workspace/CppCapstone
 
+//Path to a file.
+SIFTGPU_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+SIFTGPU_LIBRARY:FILEPATH=SIFTGPU_LIBRARY-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
