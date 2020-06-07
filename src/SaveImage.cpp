@@ -5,6 +5,8 @@
 #include "Window.h"
 #include "SaveImage.h"
 
+// From https://github.com/sol-prog/Mandelbrot_set
+
 std::tuple<int, int, int> get_rgb_piecewise_linear(int n, int iter_max) {
 	int N = 256; // colors per element
 	int N3 = N * N * N;
