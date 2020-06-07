@@ -69,7 +69,8 @@ void mandelbrot(int width, int height) {
 	// Define the size of the image
 	Window<int> scr(0, width, 0, height);
 	// The domain in which we test for points
-	Window<double> fract(-2.2, 1.2, -1.7, 1.7);
+	// Window<double> fract(-2.2, 1.2, -1.7, 1.7);
+  	Window<double> fract(-1.2, 2.2, -2.7, 2.7);
 
 	// The function used to calculate the fractal
 	auto func = [] (Complex z, Complex c) -> Complex {return z * z + c; };
