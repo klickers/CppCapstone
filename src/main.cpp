@@ -74,7 +74,7 @@ void mandelbrot(int width, int height) {
 	// The function used to calculate the fractal
 	auto func = [] (Complex z, Complex c) -> Complex {return z * z + c; };
 
-	int iter_max = 500;
+	int iter_max = 400;
 	const char *fname = "mandelbrot.png";
 	bool smooth_color = true;
 	std::vector<int> colors(scr.size());
