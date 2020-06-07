@@ -1,6 +1,7 @@
 #include <iostream>
 #include <complex>
 #include <vector>
+#include <string>
 #include <chrono>
 #include <functional>
 
@@ -105,8 +106,10 @@ int main() {
 
 	int width, height;
 
-	std::cin << "Width of image: " << width << std::endl;
-	std::cin << "Height of image: " << height << std::endl;
+  	std::cout << "Width of image: " << std::endl;
+	std::cin >> width;
+	std::cout << "Height of image: " << std::endl;
+  	std::cin >> height;
 
 	mandelbrot(width, height);
 	triple_mandelbrot(width, height);
