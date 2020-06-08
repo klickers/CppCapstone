@@ -39,9 +39,9 @@ std::tuple<int, int, int> get_rgb_smooth(int n, int iter_max) {
   	/* int r = (int)(15*(1-t)*(1-t)*t*t*255);
 	int g = (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
 	int b = (int)(9*(1-t)*t*t*t*255); */
-  	int r = (int)(15*(1-t)*(1-t)*t*t*255);
-	int g = (int)(8.5*(1-t)*(1-t)*t*t*255);
-	int b = (int)(9*(1-t)*(1-t)*t*t*255);
+  	int r = (int)(5*(1-t)*(1-t)*t*t*255);
+	int g = (int)(200*(1-t)*(1-t)*(1-t)*t*255);
+	int b = (int)(90*(1-t)*t*t*t*255);
 	return std::tuple<int, int, int>(r, g, b);
 }
 
