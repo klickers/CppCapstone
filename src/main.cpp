@@ -7,7 +7,6 @@
 
 #include "Window.h"
 #include "SaveImage.h"
-#include "Utils.h"
 
 // From https://github.com/sol-prog/Mandelbrot_set
 
@@ -78,7 +77,7 @@ void mandelbrot(int length, std::string color, int R, int G, int B) {
 
 	int iter_max = 400;
 	const char *fname = "mandelbrot.png";
-	bool smooth_color = true;
+	bool smooth_color = false;
 	std::vector<int> colors(scr.size());
 	
 	fractal(scr, fract, iter_max, colors, func, fname, smooth_color, color, R, G, B);
@@ -95,7 +94,7 @@ void triple_mandelbrot(int length, std::string color, int R, int G, int B) {
 
 	int iter_max = 500;
 	const char *fname = "triple_mandelbrot.png";
-	bool smooth_color = true;
+	bool smooth_color = false;
 	std::vector<int> colors(scr.size());
 
 	fractal(scr, fract, iter_max, colors, func, fname, smooth_color, color, R, G, B);
@@ -104,7 +103,7 @@ void triple_mandelbrot(int length, std::string color, int R, int G, int B) {
 int main() {
 
 	int length, R, G, B;
-	std::string yes, color;
+	std::string yes, smooth, color;
 
 	std::cout << "Welcome!  We'll generate a Mandelbrot (and triple Mandelbrot) image according to your specifications." << std::endl;
 	std::cout << "You will get to choose the size of the image (it's a square) and the main color of the image." << std::endl;

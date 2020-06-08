@@ -12,6 +12,6 @@ find_path(SIFTGPU_INCLUDE_DIR FreeImage.h)
 find_library(SIFTGPU_LIBRARY libfreeimage)
 include_directories(${SIFTGPU_INCLUDE_DIR})
 
-add_executable(Capstone src/main.cpp src/Utils.cpp src/SaveImage.cpp)
+add_executable(Capstone src/main.cpp src/SaveImage.cpp)
 
 target_link_libraries(Capstone freeimage)

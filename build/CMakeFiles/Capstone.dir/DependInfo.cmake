@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/workspace/CppCapstone/src/SaveImage.cpp" "/home/workspace/CppCapstone/build/CMakeFiles/Capstone.dir/src/SaveImage.cpp.o"
-  "/home/workspace/CppCapstone/src/Utils.cpp" "/home/workspace/CppCapstone/build/CMakeFiles/Capstone.dir/src/Utils.cpp.o"
   "/home/workspace/CppCapstone/src/main.cpp" "/home/workspace/CppCapstone/build/CMakeFiles/Capstone.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
