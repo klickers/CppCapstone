@@ -19,9 +19,9 @@ std::tuple<int, int, int> get_rgb_piecewise_linear(int n, int iter_max) {
 	int nn = n - b * N * N;
 	int r = nn/N;
 	int g = nn - r * N; */
-	int b = nn/N;
+	int b = n/N;
 	int r = n/(N * N);
-	int nn = nn - r * N;
+  	int nn = n - r * N;
 	int g = n - b * N * N;
 	return std::tuple<int, int, int>(r, g, b);
 }
