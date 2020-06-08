@@ -55,19 +55,21 @@ void get_number_iterations(Window<int> &scr, Window<double> &fract, int iter_max
 }
 
 void fractal(Window<int> &scr, Window<double> &fract, int iter_max, std::vector<int> &colors,
-	const std::function<Complex( Complex, Complex)> &func, const char *fname, bool smooth_color) {
+	const std::function<Complex( Complex, Complex)> &func, const char *fname, bool smooth_color, 
+	std::string color, int R, int G, int B) 
+{
 	auto start = std::chrono::steady_clock::now();
 	get_number_iterations(scr, fract, iter_max, colors, func);
 	auto end = std::chrono::steady_clock::now();
 	std::cout << "Time to generate " << fname << " = " << std::chrono::duration <double, std::milli> (end - start).count() << " [ms]" << std::endl;
 
 	// Save (show) the result as an image
-	plot(scr, colors, iter_max, fname, smooth_color);
+	plot(scr, colors, iter_max, fname, smooth_color, color, R, G, B);
 }
 
-void mandelbrot(int width, int height) {
+void mandelbrot(int length, std::string color, int R, int G, int B) {
 	// Define the size of the image
-	Window<int> scr(0, width, 0, height);
+	Window<int> scr(0, length, 0, length);
 	// The domain in which we test for points
 	Window<double> fract(-2.2, 1.2, -1.7, 1.7);
 
@@ -82,12 +84,12 @@ void mandelbrot(int width, int height) {
 	// Experimental zoom (bugs ?). This will modify the fract window (the domain in which we calculate the fractal function) 
 	//zoom(1.0, -1.225, -1.22, 0.15, 0.16, fract); //Z2
 	
-	fractal(scr, fract, iter_max, colors, func, fname, smooth_color);
+	fractal(scr, fract, iter_max, colors, func, fname, smooth_color, color, R, G, B);
 }
 
-void triple_mandelbrot(int width, int height) {
+void triple_mandelbrot(int length, std::string color, int R, int G, int B) {
 	// Define the size of the image
-	Window<int> scr(0, width, 0, height);
+	Window<int> scr(0, length, 0, length);
 	// The domain in which we test for points
 	Window<double> fract(-1.5, 1.5, -1.5, 1.5);
 
@@ -99,20 +101,34 @@ void triple_mandelbrot(int width, int height) {
 	bool smooth_color = true;
 	std::vector<int> colors(scr.size());
 
-	fractal(scr, fract, iter_max, colors, func, fname, smooth_color);
+	fractal(scr, fract, iter_max, colors, func, fname, smooth_color, color, R, G, B);
 }
 
 int main() {
 
-	int width, height;
+	int length, R, G, B;
+	std::string yes, color;
 
-  	std::cout << "Width of image: " << std::endl;
-	std::cin >> width;
-	std::cout << "Height of image: " << std::endl;
-  	std::cin >> height;
+	std::cout << "Welcome!  We'll generate a Mandelbrot (and triple Mandelbrot) image according to your specifications." << std::endl;
+	std::cout << "You will get to choose the size of the image (it's a square) and the main color of the image." << std::endl;
+	std::cout << "You will also be able to enter the values to multiply the Red, Green, and Blue rgb values by." << std::endl;
+	std::cout << "Type 'yes' to begin!" << std::endl;
+	std::cin >> yes;
+  	std::cout << "Length of image's side: " << std::endl;
+	std::cin >> length;
+	std::cout << "Main color of image: (red, green, or blue)" << std::endl;
+	std::cin >> color;
+	std::cout << "Multiply Red value by: " << std::endl;
+	std::cin >> R;
+	std::cout << "Multiply Green value by: " << std::endl;
+	std::cin >> G;
+	std::cout << "Multiply Blue value by: " << std::endl;
+	std::cin >> B;
 
-	mandelbrot(width, height);
-	triple_mandelbrot(width, height);
+	mandelbrot(length, length, color, R, G, B);
+	triple_mandelbrot(length, length, color, R, G, B);
+
+	std::cout << "Images have been generated!  Check the /build/ folder." << std::endl;
 
 	return 0;
 }

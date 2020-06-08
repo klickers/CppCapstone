@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 #ifndef SAVEIMAGE__H
 #define SAVEIMAGE__H
@@ -11,6 +12,10 @@ void plot(Window<int> &scr,
           std::vector<int> &colors, 
           int iter_max, 
           const char *fname, 
-          bool smooth_color);
+          bool smooth_color, 
+          std::string color, 
+          int R, 
+          int G, 
+          int B);
 
 #endif

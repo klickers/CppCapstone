@@ -1,5 +1,6 @@
 #include <tuple>
 #include <iostream>
+#include <string>
 
 #include <FreeImage.h>
 #include "Window.h"
@@ -22,31 +23,37 @@ std::tuple<int, int, int> get_rgb_piecewise_linear(int n, int iter_max) {
 	return std::tuple<int, int, int>(r, g, b);
 }
 
-std::tuple<int, int, int> get_rgb_smooth(int n, int iter_max) {
+std::tuple<int, int, int> get_rgb_smooth(int n, int iter_max, std::string color, int R, int G, int B) {
 	// map n on the 0..1 interval
 	double t = (double)n/(double)iter_max;
 
+	// declare variables
+	int r, g, b;
+
 	// Use smooth polynomials for r, g, b
-  	// blue
-	/* int r = (int)(9*(1-t)*t*t*t*255);
-	int g = (int)(15*(1-t)*(1-t)*t*t*255);
-	int b = (int)(8.5*(1-t)*(1-t)*(1-t)*t*255); */
-  	// red
-	/* int r = (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
-	int g = (int)(9*(1-t)*t*t*t*255);
-	int b = (int)(15*(1-t)*(1-t)*t*t*255); */
-  	// green
-  	/* int r = (int)(15*(1-t)*(1-t)*t*t*255);
-	int g = (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
-	int b = (int)(9*(1-t)*t*t*t*255); */
-  	int r = (int)(5*(1-t)*(1-t)*t*t*255);
-	int g = (int)(200*(1-t)*(1-t)*(1-t)*t*255);
-	int b = (int)(9*(1-t)*t*t*t*255);
+	switch (color)
+	{
+		case 'blue':
+			r = (int)(R*(1-t)*t*t*t*255);
+			g = (int)(G*(1-t)*(1-t)*t*t*255);
+			b = (int)(B*(1-t)*(1-t)*(1-t)*t*255);
+		case 'red':
+			r = (int)(R*(1-t)*(1-t)*(1-t)*t*255);
+			g = (int)(G*(1-t)*t*t*t*255);
+			b = (int)(B*(1-t)*(1-t)*t*t*255);
+		case 'green':
+		default:
+			r = (int)(R*(1-t)*(1-t)*t*t*255);
+			g = (int)(G*(1-t)*(1-t)*(1-t)*t*255);
+			b = (int)(B*(1-t)*t*t*t*255);
+	}
 	return std::tuple<int, int, int>(r, g, b);
 }
 
 
-void plot(Window<int> &scr, std::vector<int> &colors, int iter_max, const char *fname, bool smooth_color) {
+void plot(Window<int> &scr, std::vector<int> &colors, int iter_max, const char *fname, bool smooth_color, 
+	std::string color, int R, int G, int B) 
+{
 	// active only for static linking
 	#ifdef FREEIMAGE_LIB
 		FreeImage_Initialise();
@@ -65,7 +72,7 @@ void plot(Window<int> &scr, std::vector<int> &colors, int iter_max, const char *
 				rgb = get_rgb_piecewise_linear(n, iter_max);
 			}
 			else {
-				rgb = get_rgb_smooth(n, iter_max);
+				rgb = get_rgb_smooth(n, iter_max, color, R, G, B);
 			}
 
 			RGBQUAD col;
