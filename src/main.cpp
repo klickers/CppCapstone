@@ -80,9 +80,6 @@ void mandelbrot(int length, std::string color, int R, int G, int B) {
 	const char *fname = "mandelbrot.png";
 	bool smooth_color = true;
 	std::vector<int> colors(scr.size());
-
-	// Experimental zoom (bugs ?). This will modify the fract window (the domain in which we calculate the fractal function) 
-	//zoom(1.0, -1.225, -1.22, 0.15, 0.16, fract); //Z2
 	
 	fractal(scr, fract, iter_max, colors, func, fname, smooth_color, color, R, G, B);
 }
