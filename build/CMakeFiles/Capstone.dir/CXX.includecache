@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/workspace/CppCapstone/src/SaveImage.cpp
+tuple
+-
+iostream
+-
+FreeImage.h
+-
+Window.h
+/home/workspace/CppCapstone/src/Window.h
+SaveImage.h
+/home/workspace/CppCapstone/src/SaveImage.h
+
 /home/workspace/CppCapstone/src/SaveImage.h
 vector
 -
