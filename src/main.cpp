@@ -125,8 +125,8 @@ int main() {
 	std::cout << "Multiply Blue value by: " << std::endl;
 	std::cin >> B;
 
-	mandelbrot(length, length, color, R, G, B);
-	triple_mandelbrot(length, length, color, R, G, B);
+	mandelbrot(length, color, R, G, B);
+	triple_mandelbrot(length, color, R, G, B);
 
 	std::cout << "Images have been generated!  Check the /build/ folder." << std::endl;
 

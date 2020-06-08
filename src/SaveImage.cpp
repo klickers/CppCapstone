@@ -31,22 +31,23 @@ std::tuple<int, int, int> get_rgb_smooth(int n, int iter_max, std::string color,
 	int r, g, b;
 
 	// Use smooth polynomials for r, g, b
-	switch (color)
-	{
-		case 'blue':
-			r = (int)(R*(1-t)*t*t*t*255);
-			g = (int)(G*(1-t)*(1-t)*t*t*255);
-			b = (int)(B*(1-t)*(1-t)*(1-t)*t*255);
-		case 'red':
-			r = (int)(R*(1-t)*(1-t)*(1-t)*t*255);
-			g = (int)(G*(1-t)*t*t*t*255);
-			b = (int)(B*(1-t)*(1-t)*t*t*255);
-		case 'green':
-		default:
-			r = (int)(R*(1-t)*(1-t)*t*t*255);
-			g = (int)(G*(1-t)*(1-t)*(1-t)*t*255);
-			b = (int)(B*(1-t)*t*t*t*255);
-	}
+  	if (color == "blue")
+    {
+      	r = (int)(R*(1-t)*t*t*t*255);
+        g = (int)(G*(1-t)*(1-t)*t*t*255);
+        b = (int)(B*(1-t)*(1-t)*(1-t)*t*255);
+    }
+  	else if (color == "red")
+    {
+    	r = (int)(R*(1-t)*(1-t)*(1-t)*t*255);
+        g = (int)(G*(1-t)*t*t*t*255);
+        b = (int)(B*(1-t)*(1-t)*t*t*255);
+    }
+	else {
+        r = (int)(R*(1-t)*(1-t)*t*t*255);
+        g = (int)(G*(1-t)*(1-t)*(1-t)*t*255);
+        b = (int)(B*(1-t)*t*t*t*255);
+    }
 	return std::tuple<int, int, int>(r, g, b);
 }
 
