@@ -15,14 +15,10 @@ std::tuple<int, int, int> get_rgb_piecewise_linear(int n, int iter_max) {
 	// expand n on the 0 .. 256^3 interval (integers)
 	n = (int)(t * (double) N3);
 
-	/* int b = n/(N * N);
+	int b = n/(N * N);
 	int nn = n - b * N * N;
 	int r = nn/N;
-	int g = nn - r * N; */
-	int b = n/N;
-	int r = n/(N * N);
-  	int nn = n - r * N;
-	int g = n - b * N * N;
+	int g = nn - r * N;
 	return std::tuple<int, int, int>(r, g, b);
 }
 
@@ -34,6 +30,9 @@ std::tuple<int, int, int> get_rgb_smooth(int n, int iter_max) {
 	int r = (int)(9*(1-t)*t*t*t*255);
 	int g = (int)(15*(1-t)*(1-t)*t*t*255);
 	int b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
+	r = 255;
+	g = 255;
+	b = 255;
 	return std::tuple<int, int, int>(r, g, b);
 }
 
